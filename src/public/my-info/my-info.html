@@ -1,0 +1,29 @@
+<div class="container sign-up-form">
+  <div class="col-sm-offset-4" ng-if="reg.isSignedIn;">
+  	<h1>My Info</h1>
+  	<p>First Name: {{reg.info.user.firstname}}</p>
+  	<p>Last Name: {{reg.info.user.lastname}}</p>
+  	<p>E-mail: {{reg.info.user.email}}</p>
+  	<p>Phone: {{reg.info.user.phone}}</p>
+  	<p>Favorite dish:</p>
+  	<div class="menu-item-tile col-md-6">
+	  <div class="row">
+	    <div class="col-sm-5">
+	      <div class="menu-item-photo">
+	        <div>{{reg.info.dish.short_name}}</div>
+	        <img class="img-responsive" width="250" height="150" ng-src="{{reg.baseUrl}}/images/{{reg.info.dish.short_name}}.jpg" alt="{{reg.info.dish.name}}">
+	      </div>
+	      <div class="menu-item-price">{{reg.info.dish.price_small | currency}}<span> {{reg.info.dish.small_portion_name}}</span> {{reg.info.dish.price_large | currency}} <span>{{reg.info.dish.large_portion_name}}</span></div>
+	    </div>
+	    <div class="menu-item-description col-sm-7">
+	      <h3 class="menu-item-title">{{reg.info.dish.name}}</h3>
+	      <p class="menu-item-details">{{reg.info.dish.description}}</p>
+	    </div>
+	  </div>
+	  <hr class="visible-xs">
+	</div>
+  </div>
+  <div class="col-sm-offset-4" ng-if="!reg.isSignedIn;">
+  	<p>Not Signed Up Yet. <a ui-sref="public.sign-up">Sign up Now!</a></p>
+  </div>
+</div>
